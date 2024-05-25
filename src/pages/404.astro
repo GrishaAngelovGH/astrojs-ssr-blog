@@ -1,0 +1,15 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import notFoundImage from "../images/error-404.png";
+---
+
+<MainLayout title="Not Found">
+  <div class="h-96 flex flex-col justify-center items-center">
+    <Image src={notFoundImage} alt="404" width={200} height={200} />
+    <h1 class="mt-10 text-4xl">Page Not Found</h1>
+    <a class="mt-10 text-2xl hover:text-gray-500 hover:underline" href="/"
+      >Go Back Home</a
+    >
+  </div>
+</MainLayout>
