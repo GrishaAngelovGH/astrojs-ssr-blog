@@ -1,5 +1,11 @@
 ---
 import Navbar from "../components/Navbar.astro";
+
+const { title } = Astro.props;
+
+interface Props {
+  title: string;
+}
 ---
 
 <html lang="en">
@@ -10,7 +16,7 @@ import Navbar from "../components/Navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <script defer is:inline src="node_modules/flowbite/dist/flowbite.min.js"
     ></script>
-    <title>AstroJS Blog</title>
+    <title>{title}</title>
   </head>
   <body>
     <Navbar />
