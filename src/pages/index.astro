@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Article from "../components/Article.astro";
 import MostRecentArticle from "../components/MostRecentArticle.astro";
 
 import { getCollection } from "astro:content";
@@ -11,6 +12,7 @@ const articles: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 );
 
 const mostRecentArticle: CollectionEntry<"blog"> = articles[0];
+const restArticles: CollectionEntry<"blog">[] = articles.slice(1);
 ---
 
 <MainLayout title="AstroJS Blog">
@@ -24,5 +26,7 @@ const mostRecentArticle: CollectionEntry<"blog"> = articles[0];
 		<MostRecentArticle article={mostRecentArticle} />
 	</div>
 
-	{articles.map((article) => <h1>{article.data.title}</h1>)}
+	<div class="grid md:grid-rows-2 md:grid-cols-3 gap-5">
+		{restArticles.map((article) => <Article content={article} />)}
+	</div>
 </MainLayout>

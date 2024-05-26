@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { formatDate } from "../utils";
+
+const { content } = Astro.props;
+
+interface Props {
+  content: CollectionEntry<"blog">;
+}
+---
+
+<div class="border border-gray-400 rounded-md m-3 shadow-md">
+  <img src={`/images/${content.data.image}`} class="rounded-t-md" />
+  <div class="text-xl text-center p-1 font-bold">{content.data.title}</div>
+  <div class="text-xl text-center p-1 text-gray-500">
+    {formatDate(content.data.pubDate)}
+  </div>
+  <div class="text-center p-3">
+    {
+      content.data.tags.map((tag) => (
+        <span class="capitalize bg-blue-500 text-white p-1 pl-2 pr-2 mr-4 rounded-full inline-block m-2">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+</div>
