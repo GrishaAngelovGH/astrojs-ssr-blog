@@ -1,0 +1,37 @@
+---
+const { value } = Astro.props;
+
+interface Props {
+  value: string | null;
+}
+---
+
+<form action="/articles/search">
+  <label for="search">
+    <input
+      id="search"
+      name="query"
+      type="text"
+      placeholder="Search Articles"
+      class="w-2/3 rounded-md"
+      value={value}
+      required
+    />
+  </label>
+  <button type="submit" class="bg-blue-500 text-white p-3 rounded-full">
+    <svg
+      class="w-4 h-4"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 20 20"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+    </svg>
+  </button>
+</form>

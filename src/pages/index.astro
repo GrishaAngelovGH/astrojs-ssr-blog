@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Article from "../components/Article.astro";
 import MostRecentArticle from "../components/MostRecentArticle.astro";
+import SearchForm from "../components/SearchForm.astro";
 
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
@@ -17,10 +18,11 @@ const restArticles: CollectionEntry<"blog">[] = articles.slice(1);
 
 <MainLayout title="AstroJS Blog">
 	<div class="grid grid-cols-1 gap-5 lg:grid-cols-2 p-5">
-		<div>
-			<h1 class="text-5xl mt-4 mb-8 leading-tight text-center">
+		<div class="text-center">
+			<h1 class="text-5xl mt-4 mb-8 leading-tight">
 				Articles, Stories & Tutorials for Tech People
 			</h1>
+			<SearchForm value={""} />
 		</div>
 
 		<MostRecentArticle article={mostRecentArticle} />
