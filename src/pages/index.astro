@@ -10,5 +10,13 @@ const articles: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 ---
 
 <MainLayout title="AstroJS Blog">
+	<div class="grid grid-cols-1 gap-5 lg:grid-cols-2 p-5">
+		<div>
+			<h1 class="text-5xl mt-4 mb-8 leading-tight text-center">
+				Articles, Stories & Tutorials for Tech People
+			</h1>
+		</div>
+	</div>
+
 	{articles.map((article) => <h1>{article.data.title}</h1>)}
 </MainLayout>
