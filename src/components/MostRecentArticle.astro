@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { article } = Astro.props;
+
+interface Props {
+  article: CollectionEntry<"blog">;
+}
+
+const formatDate = (date: Date) => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  return date.toLocaleDateString("en-US", options);
+};
+---
+
+<div class="relative flex">
+  <img src={`/images/${article.data.image}`} class="rounded-md" />
+  <div
+    class="absolute w-full h-full font-bold text-white bg-black bg-opacity-40 rounded-md flex flex-col justify-center items-center"
+  >
+    <div class="text-2xl">{article.data.title}</div>
+    <div class="mt-5 text-xl">{formatDate(article.data.pubDate)}</div>
+    <div class="mt-5 w-1/2 flex justify-around">
+      {
+        article.data.tags.map((tag) => (
+          <div class="capitalize border p-1 pl-2 pr-2 rounded-full">{tag}</div>
+        ))
+      }
+    </div>
+  </div>
+</div>
