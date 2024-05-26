@@ -1,0 +1,17 @@
+---
+const { values } = Astro.props;
+
+interface Props {
+  values: string[];
+}
+---
+
+<div>
+  {
+    values.map((tag: string) => (
+      <span class="capitalize bg-blue-500 text-white p-1 pl-2 pr-2 mr-4 rounded-full inline-block m-2">
+        <a href={"/articles/tag/" + tag}> {`#${tag}`}</a>
+      </span>
+    ))
+  }
+</div>

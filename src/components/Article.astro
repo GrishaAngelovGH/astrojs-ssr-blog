@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import Tags from "./Tags.astro";
+
 import { formatDate } from "../utils";
 
 const { content } = Astro.props;
@@ -21,12 +23,6 @@ interface Props {
     {formatDate(content.data.pubDate)}
   </div>
   <div class="text-center p-3">
-    {
-      content.data.tags.map((tag) => (
-        <span class="capitalize bg-blue-500 text-white p-1 pl-2 pr-2 mr-4 rounded-full inline-block m-2">
-          {tag}
-        </span>
-      ))
-    }
+    <Tags values={content.data.tags} />
   </div>
 </div>
