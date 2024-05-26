@@ -11,8 +11,12 @@ interface Props {
 ---
 
 <div class="border border-gray-400 rounded-md m-3 shadow-md">
-  <img src={`/images/${content.data.image}`} class="rounded-t-md" />
-  <div class="text-xl text-center p-1 font-bold">{content.data.title}</div>
+  <a href={`/articles/${content.slug}`}>
+    <img src={`/images/${content.data.image}`} class="rounded-t-md" />
+  </a>
+  <a href={`/articles/${content.slug}`}>
+    <div class="text-xl text-center p-1 font-bold">{content.data.title}</div>
+  </a>
   <div class="text-xl text-center p-1 text-gray-500">
     {formatDate(content.data.pubDate)}
   </div>

@@ -15,7 +15,9 @@ interface Props {
   <div
     class="absolute w-full h-full font-bold text-white bg-black bg-opacity-40 rounded-md flex flex-col justify-center items-center"
   >
-    <div class="text-2xl text-center">{article.data.title}</div>
+    <a href={`/articles/${article.slug}`}>
+      <div class="text-2xl text-center">{article.data.title}</div>
+    </a>
     <div class="mt-5 text-xl">{formatDate(article.data.pubDate)}</div>
     <div class="mt-5 w-1/2 flex justify-around">
       {
