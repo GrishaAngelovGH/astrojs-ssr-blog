@@ -1,8 +1,15 @@
 ---
-import MainLayout from "../../../layouts/MainLayout.astro";
-import Article from "../../../components/Article.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import Article from "@components/Article.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const tags = ['tech', 'hardware','photography', 'canon', 'tablets', 'gadgets', 'samsung', 'smartphones', 'code', 'security', 'vr', 'drones'];
+  return tags.map(tag => ({
+    params: { tag }
+  }));
+}
 
 const { tag } = Astro.params;
 

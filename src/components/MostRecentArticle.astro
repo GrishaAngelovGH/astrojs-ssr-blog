@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 
 import Tags from "./Tags.astro";
 
-import { formatDate } from "../utils";
+import { formatDate } from "@utils";
 
 const { article } = Astro.props;
 
@@ -13,7 +13,7 @@ interface Props {
 ---
 
 <div class="relative flex">
-  <img src={`/images/${article.data.image}`} class="rounded-md h-[300px]" />
+  <img src={`/images/${article.data.image}`} class="w-full rounded-md h-[300px]" />
   <div
     class="absolute w-full h-[300px] md:h-full font-bold text-white bg-black bg-opacity-40 rounded-md flex flex-col justify-center items-center"
   >

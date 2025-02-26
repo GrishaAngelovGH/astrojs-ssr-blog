@@ -1,17 +1,17 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 import type { CollectionEntry } from "astro:content";
-import SearchForm from "../../components/SearchForm.astro";
-import Article from "../../components/Article.astro";
+import SearchForm from "@components/SearchForm.astro";
+import Article from "@components/Article.astro";
 import { getCollection } from "astro:content";
 
 const articles: CollectionEntry<"blog">[] = await getCollection("blog");
 
-const query: string | null = Astro.url.searchParams.get("query");
+const fullUrl = new URL(Astro.request.url);
+const query = fullUrl.searchParams.get("query");
 
-const searchResults = articles.filter((v) =>
-  v.data.title.toLowerCase().includes(query!.toLowerCase()),
-);
+const searchResults = query ? 
+  articles.filter((v) => v.data.title.toLowerCase().includes(query.toLowerCase())) : articles;
 ---
 
 <MainLayout title="Search">

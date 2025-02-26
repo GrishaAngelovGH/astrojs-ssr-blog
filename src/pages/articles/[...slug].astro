@@ -1,7 +1,14 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 import { getEntry } from "astro:content";
-import { formatDate } from "../../utils";
+import { formatDate } from "@utils";
+
+export async function getStaticPaths() {
+  const tags = ['tech', 'hardware','photography', 'canon', 'tablets', 'gadgets', 'samsung', 'smartphones', 'code', 'security', 'vr', 'drones'];
+  return tags.map(slug => ({
+    params: { slug }
+  }));
+}
 
 const { slug } = Astro.params;
 

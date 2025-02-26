@@ -1,5 +1,5 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import Navbar from "@components/Navbar.astro";
 
 const { title } = Astro.props;
 
@@ -14,8 +14,7 @@ interface Props {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <script defer is:inline src="node_modules/flowbite/dist/flowbite.min.js"
-    ></script>
+    <script defer is:inline src="/node_modules/flowbite/dist/flowbite.min.js"></script>
     <title>{title}</title>
   </head>
   <body>
