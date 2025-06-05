@@ -15,6 +15,7 @@
       "@layouts/*": [
         "src/layouts/*"
       ]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   }
 }

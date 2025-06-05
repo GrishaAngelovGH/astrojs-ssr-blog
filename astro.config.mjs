@@ -1,16 +1,21 @@
+import tailwindPostcss from '@tailwindcss/postcss';
+import tailwindVite from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
-import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-import tailwind from "@astrojs/tailwind";
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
   output: 'server',
   vite: {
+    plugins: [tailwindVite()],
+    css: {
+      postcss: {
+        plugins: [tailwindPostcss()]
+      }
+    },
     resolve: {
       alias: {
         '@components': path.resolve(__dirname, 'src/components'),
